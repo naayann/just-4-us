@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise Reveal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="reveal-page">
+  <div class="container">
+    <h2>Create a Surprise Reveal</h2>
+    <form id="reveal-form">
+      <label for="message">Surprise Message:</label>
+      <textarea id="message" required></textarea>
+      <button type="submit" class="btn">Generate Reveal</button>
+    </form>
+    <div id="reveal-output" style="display: none; margin-top: 2rem;"></div>
+    <button id="share-btn" class="btn" disabled>Share Surprise</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
