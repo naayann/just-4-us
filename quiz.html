@@ -1,32 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Partner Quiz</title>
+  <title>Connection Quiz | Valentine's</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="quiz-page">
-  <div class="container">
-    <h2>Create a Quiz About You</h2>
+  <div class="container" style="padding-top: 3rem;">
+    <a href="choose.html"
+      style="font-size: 0.9rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 2rem; display: inline-block;">&larr;
+      BACK TO OPTIONS</a>
+
+    <h2 style="text-align: center;">Test Your Connection</h2>
+    <p style="text-align: center; margin: 0 auto 3rem; opacity: 0.8;">Create a quiz about your relationship milestones
+      and favorites.</p>
+
     <form id="quiz-builder-form">
-      <label for="question">Question:</label>
-      <input type="text" id="question" required>
-      <label for="option1">Option 1:</label>
-      <input type="text" id="option1" required>
-      <label for="option2">Option 2:</label>
-      <input type="text" id="option2" required>
-      <label for="option3">Option 3:</label>
-      <input type="text" id="option3" required>
-      <label for="option4">Option 4:</label>
-      <input type="text" id="option4" required>
-      <label for="correct">Correct Option (1-4):</label>
-      <input type="number" id="correct" min="1" max="4" required>
-      <button type="submit" class="btn">Add Question</button>
+      <div>
+        <label for="question">The Question</label>
+        <input type="text" id="question" required placeholder="Where was our first date?">
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div>
+          <label>Option 1</label>
+          <input type="text" id="option1" required>
+        </div>
+        <div>
+          <label>Option 2</label>
+          <input type="text" id="option2" required>
+        </div>
+        <div>
+          <label>Option 3</label>
+          <input type="text" id="option3" required>
+        </div>
+        <div>
+          <label>Option 4</label>
+          <input type="text" id="option4" required>
+        </div>
+      </div>
+
+      <div>
+        <label for="correct">Correct Option Number (1-4)</label>
+        <input type="number" id="correct" min="1" max="4" required style="width: 100px;">
+      </div>
+
+      <button type="submit" class="btn" style="width: fit-content; margin-top: 1rem;">+ Add Question</button>
     </form>
-    <div id="questions-container"></div>
-    <button id="share-btn" class="btn" disabled>Share Quiz</button>
+
+    <div id="questions-container" style="margin-top: 3rem;"></div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <button id="share-btn" class="btn" disabled>Share Quiz</button>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
+
 </html>

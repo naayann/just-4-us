@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memory Timeline</title>
+  <title>Our Journey | Valentine's</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="timeline-page">
-  <div class="container">
-    <h2>Build Your Memory Timeline</h2>
-    <form id="timeline-form">
-      <label for="date">Date:</label>
-      <input type="date" id="date" required>
-      <label for="desc">Description:</label>
-      <textarea id="desc" required></textarea>
-      <button type="submit" class="btn">Add Milestone</button>
+  <div class="container" style="padding-top: 3rem;">
+    <a href="choose.html"
+      style="font-size: 0.9rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 2rem; display: inline-block;">&larr;
+      BACK TO OPTIONS</a>
+
+    <h2 style="text-align: center;">Our Journey Together</h2>
+    <p style="text-align: center; margin: 0 auto 3rem; opacity: 0.8;">Mark the dates that changed everything.</p>
+
+    <form id="timeline-form" style="max-width: 800px;">
+      <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: start;">
+        <div>
+          <label for="date">When was it?</label>
+          <input type="text" id="date" required placeholder="e.g. Oct 4, 2023">
+        </div>
+        <div>
+          <label for="desc">What happened?</label>
+          <input type="text" id="desc" required placeholder="We met at the coffee shop...">
+        </div>
+      </div>
+      <button type="submit" class="btn" style="margin-top: 1rem; width: fit-content;">+ Add Memory</button>
     </form>
-    <div class="timeline" id="timeline-container"></div>
-    <button id="share-btn" class="btn" disabled>Share with Partner</button>
+
+    <div id="timeline-container" class="timeline">
+      <!-- Items will appear here -->
+    </div>
+
+    <div style="text-align: center; margin: 4rem 0;">
+      <button id="share-btn" class="btn" disabled>Share Timeline</button>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
+
 </html>

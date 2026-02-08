@@ -1,28 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Love Letter Generator</title>
+  <title>Write Your Heart | Valentine's</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="letter-page">
-  <div class="container">
-    <h2>Create a Love Letter</h2>
+  <div class="container" style="padding-top: 3rem;">
+    <a href="choose.html"
+      style="font-size: 0.9rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 2rem; display: inline-block;">&larr;
+      BACK TO OPTIONS</a>
+
+    <h2 style="text-align: center; margin-bottom: 3rem;">Compose a Letter</h2>
+
     <form id="letter-form">
-      <label for="name">Partner's Name:</label>
-      <input type="text" id="name" required>
-      <label for="tone">Tone:</label>
-      <select id="tone" required>
-        <option value="romantic">Romantic</option>
-        <option value="playful">Playful</option>
-        <option value="emotional">Emotional</option>
-      </select>
-      <button type="submit" class="btn">Generate Letter</button>
+      <div>
+        <label for="name">Who is this for?</label>
+        <input type="text" id="name" required placeholder="Partner's Name">
+      </div>
+
+      <div>
+        <label for="tone">What's the feeling?</label>
+        <select id="tone" required>
+          <option value="romantic">Deeply Romantic</option>
+          <option value="playful">Playfully Sweet</option>
+          <option value="emotional">Raw & Emotional</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn" style="align-self: flex-start; margin-top: 1rem;">Generate Draft</button>
     </form>
-    <div id="letter-output" style="display: none; margin-top: 2rem; white-space: pre-wrap;"></div>
-    <button id="share-btn" class="btn" disabled>Share with Partner</button>
+
+    <div id="letter-output" style="display: none; white-space: pre-wrap;"></div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <button id="share-btn" class="btn" disabled style="opacity: 0; transition: opacity 0.5s;">Share Private
+        Link</button>
+    </div>
   </div>
+
   <script src="script.js"></script>
+  <script>
+    // Reveal share button when content is generated
+    document.getElementById('letter-form').addEventListener('submit', () => {
+      setTimeout(() => {
+        const btn = document.getElementById('share-btn');
+        btn.style.opacity = '1';
+        btn.disabled = false;
+      }, 500);
+    });
+  </script>
 </body>
+
 </html>
