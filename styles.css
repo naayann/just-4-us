@@ -10,7 +10,7 @@
   /* Soft charcoal */
   --text-sub: #6B5E5E;
   /* Muted earth tone */
-  --accent-color: #B04E5D;
+  --accent-color: #b04e72;
   /* Deep dusty rose */
   --accent-light: #E8D0D3;
   --gold-accent: #C5A065;
@@ -163,6 +163,10 @@ section {
   cursor: not-allowed;
 }
 
+.choose-page {
+  padding-bottom: 40px;
+}
+
 .card {
   background: var(--surface-color);
   padding: 2.5rem;
@@ -283,6 +287,10 @@ textarea {
   border-radius: 4px;
   /* Paper-like */
   position: relative;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 /* Timeline */
@@ -341,6 +349,11 @@ textarea {
 .timeline-item h3 {
   font-size: 1.4rem;
   color: var(--accent-color);
+  overflow-wrap: break-word;
+}
+
+.timeline-item p {
+  overflow-wrap: break-word;
 }
 
 /* Quiz */
@@ -350,6 +363,7 @@ textarea {
   margin-bottom: 1rem;
   border-radius: var(--radius-sm);
   border-left: 3px solid var(--accent-color);
+  overflow-wrap: break-word;
 }
 
 /* ──────────────────────────────────────────────── */
@@ -373,10 +387,37 @@ textarea {
 /* ──────────────────────────────────────────────── */
 
 @media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  .container {
+    padding: 0 1.5rem 1.5rem;
+    /* Updated padding for mobile */
+  }
+
   h1 {
     font-size: 2.5rem;
   }
 
+  h2 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    padding: 0.9rem 2rem;
+    width: 100%;
+    /* Full width buttons on mobile usually look better/easier to tap */
+    text-align: center;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 30px;
+  }
+
+  /* Timeline Adjustments */
   .timeline::before {
     left: 20px;
   }
@@ -384,6 +425,7 @@ textarea {
   .timeline-item {
     width: 100%;
     padding-left: 50px;
+    padding-right: 0;
     text-align: left !important;
   }
 
@@ -393,5 +435,23 @@ textarea {
 
   .timeline-item::after {
     left: 14px !important;
+    right: auto !important;
+  }
+
+  /* Form Adjustments */
+  form {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Choose Page Grid - Ensure 1 column on mobile if needed */
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
 }
