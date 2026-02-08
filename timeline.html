@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Timeline</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="timeline-page">
+  <div class="container">
+    <h2>Build Your Memory Timeline</h2>
+    <form id="timeline-form">
+      <label for="date">Date:</label>
+      <input type="date" id="date" required>
+      <label for="desc">Description:</label>
+      <textarea id="desc" required></textarea>
+      <button type="submit" class="btn">Add Milestone</button>
+    </form>
+    <div class="timeline" id="timeline-container"></div>
+    <button id="share-btn" class="btn" disabled>Share with Partner</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
