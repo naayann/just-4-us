@@ -3,7 +3,7 @@
 
 :root {
   /* Palette – Sophisticated & Warm */
-  --bg-color: #FDFBF7;
+  --bg-color: #fff8e8;
   /* Warm alabaster */
   --surface-color: #FFFFFF;
   --text-main: #2D2424;
@@ -40,6 +40,8 @@
 body {
   font-family: 'Lato', sans-serif;
   background-color: var(--bg-color);
+  background-image: radial-gradient(circle at 10% 20%, rgba(176, 78, 114, 0.03) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(197, 160, 101, 0.03) 0%, transparent 20%);
   color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
@@ -132,6 +134,10 @@ section {
 /* ──────────────────────────────────────────────── */
 /* UI Elements: Buttons & Cards                        */
 /* ──────────────────────────────────────────────── */
+#share-btn {
+  margin-bottom: 20px;
+  transition: all 0.4s ease;
+}
 
 .btn {
   display: inline-block;
@@ -148,6 +154,33 @@ section {
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
+}
+
+.btn-celebrate {
+  background: linear-gradient(135deg, var(--accent-color), #d87a9c);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(176, 78, 114, 0.3);
+  animation: pulse-soft 2s infinite;
+}
+
+.btn-celebrate:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(176, 78, 114, 0.4);
+}
+
+@keyframes pulse-soft {
+  0% {
+    box-shadow: 0 0 0 0 rgba(176, 78, 114, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(176, 78, 114, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(176, 78, 114, 0);
+  }
 }
 
 .btn:hover {
@@ -291,6 +324,28 @@ textarea {
   word-wrap: break-word;
   word-break: break-word;
   max-width: 100%;
+}
+
+.preview {
+  background: white;
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.preview pre {
+  white-space: pre-wrap;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #444;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Timeline */
