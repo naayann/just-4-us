@@ -10,14 +10,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function encodeData(data) {
-    return btoa(JSON.stringify(data)); // Base64 encode JSON
+    return btoa(encodeURIComponent(JSON.stringify(data)));
   }
 
   function decodeData(encoded) {
     try {
-      return JSON.parse(atob(encoded));
+      return JSON.parse(decodeURIComponent(atob(encoded)));
     } catch (e) {
       return null;
+    }
+  }
+
+  function triggerConfetti() {
+    if (typeof confetti === 'function') {
+      const count = 200;
+      const defaults = {
+        origin: { y: 0.7 }
+      };
+
+      function fire(particleRatio, opts) {
+        confetti(Object.assign({}, defaults, opts, {
+          particleCount: Math.floor(count * particleRatio)
+        }));
+      }
+
+      fire(0.25, { spread: 26, startVelocity: 55 });
+      fire(0.2, { spread: 60 });
+      fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+      fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+      fire(0.1, { spread: 120, startVelocity: 45 });
     }
   }
 
@@ -216,6 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           scoreDiv.innerHTML = `<p>Your score: ${score} / ${data.questions.length}</p>`;
           scoreDiv.style.animation = 'fadeIn 0.5s ease-in-out';
+          scoreDiv.querySelector('p').style.color =
+            score === 0 ? 'red' : score > 1 ? 'green' : 'green';
+          
+          if (score > 0) {
+            triggerConfetti();
+          }
         });
         break;
       case 'reveal':
@@ -230,24 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         revealBtn.addEventListener('click', () => {
           // Trigger confetti explosion
-          if (typeof confetti === 'function') {
-            const count = 200;
-            const defaults = {
-              origin: { y: 0.7 }
-            };
-
-            function fire(particleRatio, opts) {
-              confetti(Object.assign({}, defaults, opts, {
-                particleCount: Math.floor(count * particleRatio)
-              }));
-            }
-
-            fire(0.25, { spread: 26, startVelocity: 55 });
-            fire(0.2, { spread: 60 });
-            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
-            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
-            fire(0.1, { spread: 120, startVelocity: 45 });
-          }
+          triggerConfetti();
 
           messageDiv.style.display = 'block';
           messageDiv.style.animation = 'fadeIn 1s ease-in-out';
